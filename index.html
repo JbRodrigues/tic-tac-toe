@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Tic Tac Toe</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>TIC-TAC-TOE</h1>
+        <div class="box">
+            <!--TOP-->
+            <button id="te" class="square" onclick="verificaClick()"></button>
+            <button id="tm" class="square" onclick="verificaClick()"></button>
+            <button id="td" class="square" onclick="verificaClick()"></button>
+
+            <!--MIDDLE-->
+            <button id="me" class="square" onclick="verificaClick()"></button>
+            <button id="mm" class="square" onclick="verificaClick()"></button>
+            <button id="md" class="square" onclick="verificaClick()"></button>
+
+            <!--BOTTOM-->
+            <button id="be" class="square" onclick="verificaClick()"></button>
+            <button id="bm" class="square" onclick="verificaClick()"></button>
+            <button id="bd" class="square" onclick="verificaClick()"></button>
+
+        </div>
+
+        <button class="start" id="start" onclick="iniciar()">COMEÇAR</button>
+
+        <button class="reset" id="reset" onclick="resetar()">RESETAR</button>
+
+        <div class="scoreboard">
+            <h2 id="zero">
+                ZERO<div id="z"></div>
+            </h2>
+            <h2 id="xis">
+                XIS<div id="x"></div>
+            </h2>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

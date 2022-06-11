@@ -1,0 +1,138 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: none;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #14bdac;
+}
+
+h1 {
+    margin-top: 1rem;
+    text-shadow: red -3px 0, cyan 3px 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+
+.box {
+    display: grid;
+    grid-template-columns: repeat(3, 130px);
+    grid-template-rows: repeat(3, 130px);
+    grid-template-areas:
+        'te tm td'
+        'me mm md'
+        'be bm bd';
+    margin-top: 1rem;
+    background-color: red;
+}
+
+.square {
+    border-radius: 0.2rem;
+}
+
+#te {
+    grid-area: te;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#tm {
+    grid-area: tm;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+
+#td {
+    grid-area: td;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#me {
+    grid-area: me;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+
+#mm {
+    grid-area: mm;
+    border: 1px solid black;
+}
+
+#md {
+    grid-area: md;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#be {
+    grid-area: be;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+}
+
+#bm {
+    grid-area: bm;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+}
+
+#bd {
+    grid-area: bd;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+}
+
+.start {
+    width: 300px;
+    height: 50px;
+    margin-top: 1rem;
+    background-color: rgb(19, 153, 19);
+    transition: filter(3s);
+}
+
+.start:hover {
+    background-color: rgb(5, 236, 5);
+    filter: brightness(1.2);
+    cursor: pointer;
+}
+
+.reset {
+    width: 300px;
+    height: 50px;
+    margin-top: 0.5rem;
+    background-color: rgb(161, 22, 22);
+    transition: filter(3s);
+}
+
+.reset:hover {
+    background-color: red;
+    filter: brightness(1.2);
+    cursor: pointer;
+}
+
+
+.scoreboard {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    height: 50%;
+    padding: 1rem;
+    margin-top: 0.5rem;
+ 
+}
