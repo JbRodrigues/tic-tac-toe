@@ -27,18 +27,18 @@ h1 {
 
 .box {
     display: grid;
-    grid-template-columns: repeat(3, 130px);
-    grid-template-rows: repeat(3, 130px);
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
     grid-template-areas:
         'te tm td'
         'me mm md'
         'be bm bd';
     margin-top: 1rem;
-    background-color: red;
+    
 }
 
 .square {
-    border-radius: 0.2rem;
+    background-color: #14bdac;;
 }
 
 #te {
@@ -102,7 +102,7 @@ h1 {
     width: 300px;
     height: 50px;
     margin-top: 1rem;
-    background-color: rgb(19, 153, 19);
+    background-color: #139913;
     transition: filter(3s);
 }
 
@@ -115,15 +115,26 @@ h1 {
 .reset {
     width: 300px;
     height: 50px;
-    margin-top: 0.5rem;
-    background-color: rgb(161, 22, 22);
+    margin-top: 1rem;
+    background-color: #ff0000;
     transition: filter(3s);
 }
 
 .reset:hover {
-    background-color: red;
+    background-color: #bd2020;
     filter: brightness(1.2);
     cursor: pointer;
+}
+
+button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+button > img{
+    margin: 0.2rem;
 }
 
 

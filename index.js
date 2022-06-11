@@ -1,32 +1,45 @@
 const btTE = document.querySelector('#te');
+const btTM = document.querySelector('#tm');
+const btTD = document.querySelector('#td');
+
+const btME = document.querySelector('#me');
+const btMM = document.querySelector('#mm');
+const btMD = document.querySelector('#md');
+
+const btBE = document.querySelector('#be');
+const btBM = document.querySelector('#bm');
+const btBD = document.querySelector('#bd');
+
 const btStart = document.querySelector('#start');
 const btReset = document.querySelector('#reset');
 let xis = document.querySelector('#x');
 let zero = document.querySelector('#z');
 
+btReset.style.display = 'none';
 
-btReset.style.opacity = 0;
-btReset.setAttribute('disabled', true)
+let isPlaying = false;
 
-function verificaClick(){
-    alert("Clicou")
-}
+function iniciar() {
+    isPlaying = true;
+    xis.innerHTML = 0;
+    zero.innerHTML = 0;
 
-
-function iniciar(){
-     xis.innerHTML = "0";
-     zero.innerHTML = "0";
-     
-     btStart.style.backgroundColor = "#FF0F0F";
-     btStart.innerHTML = "RESETAR";
-
-
-     
-
+    while (isPlaying == true) {
+        btReset.style.display = 'block';
+        btStart.style.display = 'none';
+        isPlaying = false;
+    }
 
 }
 
-function resetar(){
-    btStart.setAttribute('disabled', false)
-    btStart.style.opacity = 1;
+function resetar() {
+    isPlaying = false
+    btStart.style.display = 'block';
+    btReset.style.display = 'none';
 }
+
+
+
+
+
+
