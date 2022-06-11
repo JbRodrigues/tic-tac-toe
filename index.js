@@ -12,8 +12,11 @@ const btBD = document.querySelector('#bd');
 
 const btStart = document.querySelector('#start');
 const btReset = document.querySelector('#reset');
+
 let xis = document.querySelector('#x');
 let zero = document.querySelector('#z');
+
+
 
 btReset.style.display = 'none';
 
@@ -34,15 +37,42 @@ function resetar() {
     btReset.style.display = 'none';
 }
 
-console.log(isPlaying)
-
 function verificaClick() {
-    if (isPlaying == true) {
-        btTE.addEventListener('Click', () => {
-            alert("Clicou")
-        })
+
+    if (isPlaying == false) {
+        alert("Inicie um novo Jogo!")
     } else {
-        alert("Inicie um novo jogo!")
+        btTE.addEventListener('click', () => {
+            console.log("Clicou no TE")
+        })
+        btTM.addEventListener('click', () => {
+            console.log("Clicou no TM")
+        })
+        btTD.addEventListener('click', () => {
+            console.log("Clicou no TD")
+        })
+
+        /*--------------------------------------------------------------*/
+        btME.addEventListener('click', () => {
+            console.log("Clicou no ME")
+        })
+        btMM.addEventListener('click', () => {
+            console.log("Clicou no MM")
+        })
+        btMD.addEventListener('click', () => {
+            console.log("Clicou no MD")
+        })
+
+        /*--------------------------------------------------------------*/
+        btBE.addEventListener('click', () => {
+            console.log("Clicou no BE")
+        })
+        btBM.addEventListener('click', () => {
+            console.log("Clicou no BM")
+        })
+        btBD.addEventListener('click', () => {
+            console.log("Clicou no BD")
+        })
     }
 
 }
