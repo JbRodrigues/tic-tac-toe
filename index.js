@@ -24,18 +24,27 @@ function iniciar() {
     xis.innerHTML = 0;
     zero.innerHTML = 0;
 
-    while (isPlaying == true) {
-        btReset.style.display = 'block';
-        btStart.style.display = 'none';
-        isPlaying = false;
-    }
-
+    btReset.style.display = 'block';
+    btStart.style.display = 'none';
 }
 
 function resetar() {
     isPlaying = false
     btStart.style.display = 'block';
     btReset.style.display = 'none';
+}
+
+console.log(isPlaying)
+
+function verificaClick() {
+    if (isPlaying == true) {
+        btTE.addEventListener('Click', () => {
+            alert("Clicou")
+        })
+    } else {
+        alert("Inicie um novo jogo!")
+    }
+
 }
 
 
