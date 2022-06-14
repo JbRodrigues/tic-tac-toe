@@ -33,7 +33,7 @@ h1 {
         'me mm md'
         'be bm bd';
     margin-top: 1rem;
-    
+
 }
 
 
@@ -122,7 +122,7 @@ h1 {
     cursor: pointer;
 }
 
-.square{
+.square {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -131,7 +131,7 @@ h1 {
     font-family: sans-serif;
 }
 
-button > img{
+button>img {
     margin: 0.2rem;
 }
 
@@ -145,6 +145,24 @@ button > img{
     margin-top: 0.5rem;
 }
 
-.score{
+.score {
     text-align: center;
+}
+
+section {
+    border: 1px solid black;
+}
+
+#modalWin {
+    display: none;
+    width: 50%;
+    height: 50%;
+    border: 1px solid black;
+    background-color: aquamarine;
+    margin-bottom: 8.4rem;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+
 }
