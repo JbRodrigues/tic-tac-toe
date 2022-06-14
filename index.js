@@ -1,35 +1,13 @@
-let topLeft = document.querySelector('#te');
-topLeft.innerHTML = "";
-let topMid = document.querySelector('#tm');
-topMid.innerHTML = "";
-let topRight = document.querySelector('#td');
-topRight.innerHTML = "";
-
-let midLeft = document.querySelector('#me');
-midLeft.innerHTML = "";
-let midMid = document.querySelector('#mm');
-midMid.innerHTML = "";
-let midRight = document.querySelector('#md');
-midRight.innerHTML = "";
-
-let botLeft = document.querySelector('#be');
-botLeft.innerHTML = "";
-let botMid = document.querySelector('#bm');
-botMid.innerHTML = "";
-let botRight = document.querySelector('#bm');
-botRight.innerHTML = "";
-
 const btStart = document.querySelector('#start');
 const btReset = document.querySelector('#reset');
 
 let xis = document.querySelector('#x');
 let zero = document.querySelector('#z');
 
-let game = [
-    ["-", "-", "-"],
-    ["-", "-", "-"],
-    ["-", "-", "-"]
-];
+xis.innerHTML = 0;
+zero.innerHTML = 0;
+
+let position = document.querySelectorAll('div.square');
 
 let player = 'O';
 
@@ -39,8 +17,10 @@ let isPlaying = false;
 
 function start() {
     isPlaying = true;
-    xis.innerHTML = 0;
-    zero.innerHTML = 0;
+    //declarando os valores dos campos
+    for (let index = 0; index < position.length; index++) {
+        position[index].innerHTML = "";
+    }
 
     btReset.style.display = 'block';
     btStart.style.display = 'none';
@@ -50,19 +30,11 @@ function reset() {
     isPlaying = false
     btStart.style.display = 'block';
     btReset.style.display = 'none';
-    
-    topLeft.innerHTML = "";
-    topMid.innerHTML = "";
-    topRight.innerHTML = "";
 
-    midLeft.innerHTML = "";
-    midMid.innerHTML = "";
-    midRight.innerHTML = "";
-
-    botLeft.innerHTML = "";
-    botMid.innerHTML = "";
-    botRight.innerHTML = "";
-    
+    //resetando todos os campos para 'zero'
+    for (let i = 0; i < game.length; i++) {
+        game[i][i] = '';
+    }
 }
 
 function verificaClick() {
@@ -70,7 +42,6 @@ function verificaClick() {
     if (isPlaying == false) {
         alert("Inicie um novo Jogo!")
     } else {
-       let btn = document.querySelector('#te');
-       btn.innerHTML = "O"
+
     }
 }
