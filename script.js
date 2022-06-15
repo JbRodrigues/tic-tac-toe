@@ -57,69 +57,10 @@ for (const pos of position) {
             reset();
         }
         pos.innerHTML = player;
-        console.log(pos)
         nextPlayer();
+        plays();
         winCondition();
-
-        /*
-                if (game[0][0] == '') {
-                    game[0][0] = player;
-                    topLeft.innerHTML = player;
-                    moves++;
-        
-        
-                }
-                if (topMid.innerHTML == '') {
-                    game[0][1] = player;
-                    topLeft.innerHTML = player;
-                    moves++;
-                }
-                if (topRight.innerHTML == '') {
-                    game[0][2] = player;
-                    topLeft.innerHTML = player;
-                    moves++;
-                }
-        
-                if (midLeft.innerHTML == '') {
-                    game[1][0] = player;
-                    topLeft.innerHTML = player;
-                    moves++;
-                }
-                if (midMid.innerHTML == '') {
-                    game[1][1] = player;
-                    topLeft.innerHTML = player;
-                    moves++;
-                }
-                if (midRight.innerHTML == '') {
-                    game[1][2] = player;
-                    topLeft.innerHTML = player;
-                    moves++;
-                }
-        
-                if (botLeft.innerHTML == '') {
-                    game[2][0] = player;
-                    topLeft.innerHTML = player;
-                    moves++;
-                }
-        
-                if (botMid.innerHTML == '') {
-                    game[2][1] = player;
-                    topLeft.innerHTML = player;
-                    moves++;
-                }
-        
-                if (botRight.innerHTML == '') {
-                    game[2][2] = player;
-                    topLeft.innerHTML = player;
-                    moves++;
-                }
-        
-                if (moves == 9) {
-                    modal.style.display = 'block';
-                    modalWin.innerHTML = 'Empatou!';
-                }
-                winCondition();
-                */
+        console.log(moves);
     });
 
 }
@@ -133,6 +74,13 @@ function nextPlayer() {
     } else {
         player = 'O';
         moves++;
+    }
+}
+
+function plays() {
+    if (moves == 9) {
+        modalWin.innerHTML = 'EMPATE!';
+        modal.style.display = 'block';
     }
 }
 
@@ -162,6 +110,12 @@ function winCondition() {
         (topLeft.innerHTML == 'O' && midMid.innerHTML == 'O' && botRight.innerHTML == 'O')
         ||
         (topRight.innerHTML == 'O' && midMid.innerHTML == 'O' && botLeft.innerHTML == 'O')
+        ||
+        (topLeft.innerHTML == 'O' && midLeft.innerHTML == 'O' && botLeft.innerHTML == 'O')
+        ||
+        (topMid.innerHTML == 'O' && midMid.innerHTML == 'O' && botMid.innerHTML == 'O')
+        ||
+        (topRight.innerHTML == 'O' && midRight.innerHTML == 'O' && botRight.innerHTML == 'O')
     ) {
         zero.innerHTML + 1;
         modalWin.innerHTML = 'O Zero Ganhou!';
@@ -178,8 +132,14 @@ function winCondition() {
         (topLeft.innerHTML == 'X' && midMid.innerHTML == 'X' && botRight.innerHTML == 'X')
         ||
         (topRight.innerHTML == 'X' && midMid.innerHTML == 'X' && botLeft.innerHTML == 'X')
+        ||
+        (topLeft.innerHTML == 'X' && midLeft.innerHTML == 'X' && botLeft.innerHTML == 'X')
+        ||
+        (topMid.innerHTML == 'X' && midMid.innerHTML == 'X' && botMid.innerHTML == 'X')
+        ||
+        (topRight.innerHTML == 'X' && midRight.innerHTML == 'X' && botRight.innerHTML == 'X')
     ) {
-        xis.innerHTML + 1;
+        xis.innerHTML++;
         modalWin.innerHTML = 'O Xis Ganhou!';
         modal.style.display = 'block';
     }
