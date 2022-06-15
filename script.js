@@ -37,7 +37,8 @@ let game = [
 modal.style.display = 'block';
 let player = 'O';
 let moves = 0;
-jogador.innerHTML = 'Vez do jogador: '+player;
+let winning = false;
+jogador.innerHTML = 'Vez do jogador: ' + player;
 btReset.style.display = 'none';
 modal.style.display = 'none';
 
@@ -60,11 +61,14 @@ for (const pos of position) {
         if (isPlaying == false) {
             reset();
         }
+        if(isPlaying == false){
+            player = '';
+        }
         pos.innerHTML = player;
         nextPlayer();
         plays();
         winCondition();
-        console.log(moves);
+
     });
 
 }
@@ -74,13 +78,13 @@ function nextPlayer() {
         player = '';
     } else if (player == 'O') {
         player = 'X';
-        jogador.innerHTML = 'Vez do jogador: ' +player;
+        jogador.innerHTML = 'Vez do jogador: ' + player;
         moves++;
     } else {
         player = 'O';
-        jogador.innerHTML = 'Vez do jogador: ' +player;
+        jogador.innerHTML = 'Vez do jogador: ' + player;
         moves++;
-        
+
     }
 }
 
@@ -88,13 +92,19 @@ function plays() {
     if (moves == 9) {
         modalWin.innerHTML = 'EMPATE!';
         modal.style.display = 'block';
+        winning = false;
     }
 }
 
 function reset() {
     isPlaying = false;
-    player = '';
+    player = 'O';
     moves = 0;
+    console.log(isPlaying)
+    if(isPlaying == false){
+        player = '';
+    }
+    jogador.innerHTML = 'Vez do jogador: ' + player;
     btStart.style.display = 'block';
     btReset.style.display = 'none';
     modal.style.display = 'none';
@@ -104,6 +114,8 @@ function reset() {
     }
 
 }
+
+
 
 function winCondition() {
 
@@ -127,6 +139,7 @@ function winCondition() {
         zero.innerHTML++;
         modalWin.innerHTML = 'O Zero Ganhou!';
         modal.style.display = 'block';
+        winning = true;
 
 
     } else if (
@@ -149,5 +162,6 @@ function winCondition() {
         xis.innerHTML++;
         modalWin.innerHTML = 'O Xis Ganhou!';
         modal.style.display = 'block';
+        winning = true;
     }
 }

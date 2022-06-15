@@ -138,7 +138,7 @@ button>img {
 
 .scoreboard {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 50%;
     height: 50%;
     padding: 1rem;
@@ -151,12 +151,42 @@ button>img {
 
 #modalWin {
     display: flex;
-    width: 500px;
+    width: 50%;
     height: auto;
     text-align: center;
     position: fixed;
-    background-color:gray;
+    background-color: gray;
     border-radius: 2.5rem;
     font-size: 50px;
     margin-bottom: 8rem;
+}
+
+#player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    padding: 1rem;
+    width: 100%;
+    font-size: 2rem;
+}
+
+.placar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+#x {
+    width: 50px;
+    height: 30px;
+    padding: 0.1rem;
+    margin: 0.1rem;
+}
+
+#z {
+    width: 50px;
+    height: 30px;
 }
