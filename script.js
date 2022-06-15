@@ -15,6 +15,9 @@ const botLeft = document.querySelector('#be');
 const botMid = document.querySelector('#bm');
 const botRight = document.querySelector('#bd');
 
+let jogador = document.querySelector('#player')
+
+
 let xis = document.querySelector('#x');
 let zero = document.querySelector('#z');
 
@@ -34,6 +37,7 @@ let game = [
 modal.style.display = 'block';
 let player = 'O';
 let moves = 0;
+jogador.innerHTML = 'Vez do jogador: '+player;
 btReset.style.display = 'none';
 modal.style.display = 'none';
 
@@ -70,10 +74,13 @@ function nextPlayer() {
         player = '';
     } else if (player == 'O') {
         player = 'X';
+        jogador.innerHTML = 'Vez do jogador: ' +player;
         moves++;
     } else {
         player = 'O';
+        jogador.innerHTML = 'Vez do jogador: ' +player;
         moves++;
+        
     }
 }
 
@@ -117,7 +124,7 @@ function winCondition() {
         ||
         (topRight.innerHTML == 'O' && midRight.innerHTML == 'O' && botRight.innerHTML == 'O')
     ) {
-        zero.innerHTML + 1;
+        zero.innerHTML++;
         modalWin.innerHTML = 'O Zero Ganhou!';
         modal.style.display = 'block';
 

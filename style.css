@@ -9,7 +9,7 @@ html {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-h1 {
+#title {
     margin-top: 1rem;
     text-shadow: red -3px 0, cyan 3px 0;
 }
