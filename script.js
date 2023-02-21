@@ -17,7 +17,6 @@ const botRight = document.querySelector('#bd');
 
 let jogador = document.querySelector('#player')
 
-
 let xis = document.querySelector('#x');
 let zero = document.querySelector('#z');
 
@@ -28,12 +27,6 @@ let position = document.querySelectorAll('div.square');
 
 let isPlaying = false;
 
-let game = [
-    ['', '', ''],
-    ['', '', ''],
-    ['', '', '']
-]
-
 modal.style.display = 'block';
 let player = 'O';
 let moves = 0;
@@ -42,53 +35,64 @@ jogador.innerHTML = 'Vez do jogador: ' + player;
 btReset.style.display = 'none';
 modal.style.display = 'none';
 
+if(isPlaying == 'false'){
+    position.style.pointerEvents = 'none';
+}
+
 function start() {
     isPlaying = true;
     btReset.style.display = 'block';
     btStart.style.display = 'none';
-    game = [
-        ['', '', ''],
-        ['', '', ''],
-        ['', '', '']
-    ]
-
     player = 'O';
-
 }
 
 for (const pos of position) {
     pos.addEventListener('click', function onClick() {
         if (isPlaying == false) {
             reset();
+        } else {
+            //pos.innerHTML = player;
+            if (pos.innerHTML != ''){
+                pos.style.pointerEvents = 'none';
+            }else{
+                pos.innerHTML = player;
+            }
+            nextPlayer();
+            plays();
+            winCondition();
         }
-        if(isPlaying == false){
-            player = '';
-        }
-        pos.innerHTML = player;
-        nextPlayer();
-        plays();
-        winCondition();
-
     });
 
 }
 
+
+
+//Change player's turn
 function nextPlayer() {
     if (isPlaying == false) {
-        player = '';
-    } else if (player == 'O') {
-        player = 'X';
-        jogador.innerHTML = 'Vez do jogador: ' + player;
-        moves++;
-    } else {
         player = 'O';
-        jogador.innerHTML = 'Vez do jogador: ' + player;
-        moves++;
+
+    } else {
+
+        if (player == 'O') {
+            player = 'X';
+            jogador.innerHTML = 'Vez do jogador: ' + player;
+            moves++;
+
+        } else {
+            player = 'O';
+            jogador.innerHTML = 'Vez do jogador: ' + player;
+            moves++;
+
+        }
 
     }
 }
 
 function plays() {
+    if(isPlaying == 'false'){
+        position.style.pointerEvents = 'none'
+    }
     if (moves == 9) {
         modalWin.innerHTML = 'EMPATE!';
         modal.style.display = 'block';
@@ -100,14 +104,11 @@ function reset() {
     isPlaying = false;
     player = 'O';
     moves = 0;
-    console.log(isPlaying)
-    if(isPlaying == false){
-        player = '';
-    }
     jogador.innerHTML = 'Vez do jogador: ' + player;
     btStart.style.display = 'block';
     btReset.style.display = 'none';
     modal.style.display = 'none';
+
 
     for (let index = 0; index < position.length; index++) {
         position[index].innerHTML = "";
@@ -163,5 +164,6 @@ function winCondition() {
         modalWin.innerHTML = 'O Xis Ganhou!';
         modal.style.display = 'block';
         winning = true;
+
     }
 }
