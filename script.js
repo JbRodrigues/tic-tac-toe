@@ -35,10 +35,6 @@ jogador.innerHTML = 'Vez do jogador: ' + player;
 btReset.style.display = 'none';
 modal.style.display = 'none';
 
-if(isPlaying == 'false'){
-    position.style.pointerEvents = 'none';
-}
-
 function start() {
     isPlaying = true;
     btReset.style.display = 'block';
@@ -56,8 +52,8 @@ for (const pos of position) {
                 pos.style.pointerEvents = 'none';
             }else{
                 pos.innerHTML = player;
+                nextPlayer();
             }
-            nextPlayer();
             plays();
             winCondition();
         }
@@ -65,15 +61,11 @@ for (const pos of position) {
 
 }
 
-
-
 //Change player's turn
 function nextPlayer() {
     if (isPlaying == false) {
         player = 'O';
-
     } else {
-
         if (player == 'O') {
             player = 'X';
             jogador.innerHTML = 'Vez do jogador: ' + player;
@@ -83,20 +75,18 @@ function nextPlayer() {
             player = 'O';
             jogador.innerHTML = 'Vez do jogador: ' + player;
             moves++;
-
         }
 
     }
 }
 
 function plays() {
-    if(isPlaying == 'false'){
-        position.style.pointerEvents = 'none'
-    }
-    if (moves == 9) {
+
+    if (moves == 9 && winning != true) {
         modalWin.innerHTML = 'EMPATE!';
         modal.style.display = 'block';
         winning = false;
+        isPlaying = false;
     }
 }
 
@@ -110,13 +100,14 @@ function reset() {
     modal.style.display = 'none';
 
 
+    //Reseta todas as posições
     for (let index = 0; index < position.length; index++) {
         position[index].innerHTML = "";
-    }
+    };
+
+    isPlaying = false;
 
 }
-
-
 
 function winCondition() {
 
@@ -141,7 +132,7 @@ function winCondition() {
         modalWin.innerHTML = 'O Zero Ganhou!';
         modal.style.display = 'block';
         winning = true;
-
+        isPlaying = false;
 
     } else if (
         (topLeft.innerHTML == 'X' && topMid.innerHTML == 'X' && topRight.innerHTML == 'X')
@@ -164,6 +155,6 @@ function winCondition() {
         modalWin.innerHTML = 'O Xis Ganhou!';
         modal.style.display = 'block';
         winning = true;
-
+        isPlaying = false;
     }
 }
