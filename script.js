@@ -28,7 +28,15 @@ let position = document.querySelectorAll('div.square');
 let isPlaying = false;
 
 modal.style.display = 'block';
-let player = 'O';
+
+//Gera um numero aleatorio entre 0 e 1 e define aleatoriamente quem irá começar
+let random = Math.floor(Math.random() * 2)
+    if(random == 1){
+        player = "O";
+    }else{
+        player = "X";
+    }
+
 let moves = 0;
 let winning = false;
 jogador.innerHTML = 'Vez do jogador: ' + player;
@@ -36,10 +44,11 @@ btReset.style.display = 'none';
 modal.style.display = 'none';
 
 function start() {
+
     isPlaying = true;
     btReset.style.display = 'block';
     btStart.style.display = 'none';
-    player = 'O';
+
 }
 
 for (const pos of position) {
