@@ -65,6 +65,7 @@ for (const pos of position) {
             }
             plays();
             winCondition();
+            console.log(moves)
         }
     });
 
@@ -91,7 +92,7 @@ function nextPlayer() {
 
 function plays() {
 
-    if (moves == 9 && winning != true) {
+    if (moves == 9) {
         modalWin.innerHTML = 'EMPATE!';
         modal.style.display = 'block';
         winning = false;
